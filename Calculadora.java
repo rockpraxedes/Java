@@ -3,24 +3,33 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.util.ArrayList;
+import java.io.*;
 
 public class Calculadora extends JFrame implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
-	private JPanel janela;
+	private JFrame frame;
+	private JPanel j_janela,j_texto,j_numeros;
 	private JTextField Area_Texto;
 	private JButton n1,n2,n3,n4,n5,n6,n7,n8,n9,n0,mai,men,div,mul,igu,cc;
 	int valor1 =0, valor2 =0, resultado =0;
+	char operacao;
 	
 	public Calculadora(){
 		
 		super("CALCULADORA");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		Container janela;
-		janela = getContentPane();
-		janela.setLayout (new GridLayout( 4,4));
+		Container j_janela;
+		j_janela = getContentPane();
+		JPanel j_numeros = new JPanel();
+		JPanel j_texto = new JPanel();
+		j_janela.setLayout (new BorderLayout());
+		j_texto.setLayout (new FlowLayout());
+		j_numeros.setLayout (new GridLayout(4,4,1,1));
+		JFrame frame = new JFrame();
 		
-
+		frame.add(j_janela);
+		
 		Area_Texto = new JTextField (12);
 		Area_Texto.setEditable(true);
 		n1 = new JButton ("1");
@@ -59,35 +68,37 @@ public class Calculadora extends JFrame implements ActionListener {
 		pack();
 
 		
-		janela.add(div);
-		janela.add(mul);
-		janela.add(men);
-		janela.add(mai);
-		janela.add(n7);
-		janela.add(n8);
-		janela.add(n9);
-		janela.add(cc);
-		janela.add(n4);
-		janela.add(n5);
-		janela.add(n6);
-		janela.add(igu);
-		janela.add(n1);
-		janela.add(n2);
-		janela.add(n3);
-		janela.add(n0);
-		janela.add(Area_Texto);
+		j_numeros.add(div);
+		j_numeros.add(mul);
+		j_numeros.add(men);
+		j_numeros.add(mai);
+		j_numeros.add(n7);
+		j_numeros.add(n8);
+		j_numeros.add(n9);
+		j_numeros.add(cc);
+		j_numeros.add(n4);
+		j_numeros.add(n5);
+		j_numeros.add(n6);
+		j_numeros.add(igu);
+		j_numeros.add(n1);
+		j_numeros.add(n2);
+		j_numeros.add(n3);
+		j_numeros.add(n0);
+		j_texto.add(Area_Texto);
+		j_janela.add(j_texto, BorderLayout.NORTH);
+		j_janela.add(j_numeros, BorderLayout.CENTER);
 	
 		
-		cc.setBackground(Color.gray);
+		
+		frame.setVisible(true);
+		frame.setSize(250,300);
 		
 	}
 	
 	public static void main(String[] args) {
 		Calculadora Calculadora = new Calculadora();
 		//JFrame.setDefaultLookAndFeelDecorated(true);
-		Calculadora.setVisible(true);
-		Calculadora.setSize(250,300);
-		
+
 	}
 	
 	
@@ -119,18 +130,39 @@ public class Calculadora extends JFrame implements ActionListener {
 		}if(e.getSource() == mai){
 			valor1 = Integer.parseInt(Area_Texto.getText());
 			Area_Texto.setText("");
+			operacao = '+';
 		}if(e.getSource() == men){
 			valor1 = Integer.parseInt(Area_Texto.getText());
 			Area_Texto.setText("");
+			operacao = '-';
 		}if(e.getSource() == div){
 			valor1 = Integer.parseInt(Area_Texto.getText());
 			Area_Texto.setText("");
+			operacao = '/';
 		}if(e.getSource() == mul){
 			valor1 = Integer.parseInt(Area_Texto.getText());
 			Area_Texto.setText("");
+			operacao = '*';
 		}if(e.getSource() == igu){
 			valor2 = Integer.parseInt(Area_Texto.getText());
-			resultado = valor1 + valor2 ;
+			switch (operacao) {
+				case '+': {
+					resultado = valor1 + valor2;
+					break;
+				}
+				case '-': {
+					resultado = valor1 - valor2;
+					break;
+				}
+				case '/': {
+					resultado = valor1 / valor2;
+					break;
+				}
+				case '*': {
+					resultado = valor1 * valor2;
+					break;
+				}
+            }
 			Area_Texto.setText("" + resultado);
 		}
 		
