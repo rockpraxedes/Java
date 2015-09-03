@@ -26,8 +26,17 @@ public class Tela extends JFrame implements ActionListener {
 	public int lv1=4,lv2=6,lv3=8,lv4=10,lv5=15,lv6=20,lv7=25,lv8=30,lv9=40,lv10=50,lv0=70;
 	public int lv=0;
 	public String j="";
-
-
+	public int tempo = 200; // valor do delay do pisca botao.
+	
+	Icon botverde = new ImageIcon("botaoverde.gif");  
+	Icon verde = new ImageIcon("pisqueverde.gif");  
+	Icon botvermelho = new ImageIcon("botaovermelho.gif");  
+	Icon vermelho = new ImageIcon("pisquevermelho.gif");  
+	Icon botamarelo = new ImageIcon("botaoamarelo.gif");  
+	Icon amarelo = new ImageIcon("pisqueamarelo.gif");  
+	Icon botazul = new ImageIcon("botaoazul.gif");  
+	Icon azul = new ImageIcon("pisqueazul.gif"); 
+	Random random = new Random();  	
 
 	public Tela(){
 		
@@ -126,13 +135,6 @@ public class Tela extends JFrame implements ActionListener {
 		Botao[2][2].setBackground(Color.BLACK);
 		
 		
-		Icon botverde = new ImageIcon("botaoverde.gif");  
-		Icon verde = new ImageIcon("pisqueverde.gif");  
-		Icon botvermelho = new ImageIcon("botaovermelho.gif");  
-		Icon botamarelo = new ImageIcon("botaoamarelo.gif");  
-		Icon botazul = new ImageIcon("botaoazul.gif");  
-
-  		
 		Botao [1][1].setIcon(botverde); 
 		Botao [1][2].setIcon(botvermelho); 
 		Botao [2][1].setIcon(botamarelo); 
@@ -144,19 +146,55 @@ public class Tela extends JFrame implements ActionListener {
 		
 	}
 
-
+	public void  piscaverde() {    
+		Botao [1][1].setIcon(verde); 
+		java.awt.EventQueue.invokeLater(new Runnable() {                 
+			public void run() {     
+				try    
+				{ Thread.sleep(tempo);}    
+				catch (InterruptedException ie) {}    
+				Botao [1][1].setIcon(botverde);    
+			  }    
+		});    
+	}
+	public void  piscavemelho() {    
+		Botao [1][2].setIcon(vermelho); 
+		java.awt.EventQueue.invokeLater(new Runnable() {                 
+			public void run() {     
+				try    
+				{ Thread.sleep(tempo);}    
+				catch (InterruptedException ie) {}    
+				Botao [1][2].setIcon(botvermelho);    
+			  }    
+		});    
+	}
+	public void  piscaamarelo() {    
+		Botao [2][1].setIcon(amarelo); 
+		java.awt.EventQueue.invokeLater(new Runnable() {                 
+			public void run() {     
+				try    
+				{ Thread.sleep(tempo);}    
+				catch (InterruptedException ie) {}    
+				Botao [2][1].setIcon(botamarelo);    
+			  }    
+		});    
+	}
+	public void  piscaazul() {    
+		Botao [2][2].setIcon(azul); 
+		java.awt.EventQueue.invokeLater(new Runnable() {                 
+			public void run() {     
+				try    
+				{ Thread.sleep(tempo);}    
+				catch (InterruptedException ie) {}    
+				Botao [2][2].setIcon(botazul);    
+			  }    
+		});    
+	}
+	
 
 	public void actionPerformed(ActionEvent e) {
 	
-		Icon botverde = new ImageIcon("botaoverde.gif");  
-		Icon verde = new ImageIcon("pisqueverde.gif");  
-		Icon botvermelho = new ImageIcon("botaovermelho.gif");  
-		Icon vermelho = new ImageIcon("pisquevermelho.gif");  
-		Icon botamarelo = new ImageIcon("botaoamarelo.gif");  
-		Icon amarelo = new ImageIcon("pisqueamarelo.gif");  
-		Icon botazul = new ImageIcon("botaoazul.gif");  
-		Icon azul = new ImageIcon("pisqueazul.gif"); 
-		Random random = new Random();  		
+			
 		
   		
 		Botao [1][1].setIcon(botverde); 
@@ -169,7 +207,7 @@ public class Tela extends JFrame implements ActionListener {
 		if (e.getSource() == Botao [1][1]){
 			k2 += "0";
 
-			Botao [1][1].setIcon(verde); 
+			piscaverde()  ;
 			if (j.equals(k2)) {
 				JOptionPane.showMessageDialog(null, "ACERTOU A SEQUENCIA! PARABENS");
 				k2 = "";
@@ -177,7 +215,7 @@ public class Tela extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == Botao [1][2]){
 			k2 += "1";
-			Botao [1][2].setIcon(vermelho); 
+			piscavemelho();
 			if (j.equals(k2)) {
 				JOptionPane.showMessageDialog(null, "ACERTOU A SEQUENCIA! PARABENS");
 				k2 = "";
@@ -185,15 +223,15 @@ public class Tela extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == Botao [2][1]){
 			k2 += "2";
-			Botao [2][1].setIcon(amarelo); 
-				if (j.equals(k2)) {
+			piscaamarelo();
+			if (j.equals(k2)) {
 				JOptionPane.showMessageDialog(null, "ACERTOU A SEQUENCIA! PARABENS");
 				k2 = "";
 			}
 		}
 		if (e.getSource() == Botao [2][2]){
 			k2 += "3";
-			Botao [2][2].setIcon(azul); 
+			piscaazul();
 			if (j.equals(k2)) {
 				JOptionPane.showMessageDialog(null, "ACERTOU A SEQUENCIA! PARABENS");
 				k2 = "";
