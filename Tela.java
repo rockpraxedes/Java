@@ -26,18 +26,6 @@ public class Tela extends JFrame implements ActionListener {
 	public int lv1=4,lv2=6,lv3=8,lv4=10,lv5=15,lv6=20,lv7=25,lv8=30,lv9=40,lv10=50,lv0=70;
 	public int lv=0;
 	public String j="";
-	String lvl="";
-	String lvl1="kehu";
-	String lvl2="kkeu";
-	String lvl3="huek";
-	String lvl4="ehukhe";
-	String lvl5="hekuhu";
-	String lvl6="khkeuh";
-	String lvl7="eeuekhkeh";
-	String lvl8="ekhuuekhu";
-	String lvl9="ekhuekhuekheuk";
-	String lvl10="ukkhuekkeeuheh";
-	String lvl0="keuhkeuhkehhuekhuekh";
 
 
 
@@ -64,7 +52,7 @@ public class Tela extends JFrame implements ActionListener {
 		GridLayout grid3 = new GridLayout(1,3,1,1);
 		FlowLayout flow = new FlowLayout();
 		BorderLayout border = new BorderLayout(2,2);
-		lvl=lvl1;
+	
 		//iniciando os paineis que vao dentro da JANELA com os layouts setados
 		JPanel jogo = new JPanel(flow);
 		JPanel panel_top = new JPanel(grid2);
