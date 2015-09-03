@@ -24,7 +24,7 @@ public class Tela extends JFrame implements ActionListener {
 	private String k2 ="";
 	public int aleatorio;
 	public int lv1=4,lv2=6,lv3=8,lv4=10,lv5=15,lv6=20,lv7=25,lv8=30,lv9=40,lv10=50,lv0=70;
-	public int lv=0;
+	public int lv=0,texto;
 	public String j="";
 	public int tempo = 200; // valor do delay do pisca botao.
 	
@@ -72,13 +72,13 @@ public class Tela extends JFrame implements ActionListener {
 
 		JLabel space = new JLabel ("                |");
 		JLabel lab_level = new JLabel ("Lvl :");	
-		JLabel lab_vitseguidas = new JLabel("Quantidade de vitorias :");
+		JLabel lab_vitseguidas = new JLabel("Vitorias :");
 	
 		qnt_level = new JTextField("0");
-		qnt_vitseguidas = new JTextField ("");
+		qnt_vitseguidas = new JTextField ("0");
 		//b_new = new JButton("NEW GAME");
 	
-		qnt_vitseguidas.setEditable(true);
+		qnt_vitseguidas.setEditable(false);
 		panel_top.add(lab_level);
 		panel_top.add(qnt_level);
 		panel_lateral.add(lab_vitseguidas);
@@ -140,10 +140,7 @@ public class Tela extends JFrame implements ActionListener {
 		Botao [2][1].setIcon(botamarelo); 
 		Botao [2][2].setIcon(botazul); 
 		
-		//Random random = new Random();  
-		
-		//aleatorio = random.nextInt(1); 
-		
+	
 	}
 
 	public void  piscaverde() {    
@@ -190,6 +187,11 @@ public class Tela extends JFrame implements ActionListener {
 			  }    
 		});    
 	}
+	public void vitorias(){
+		texto = Integer.parseInt(qnt_vitseguidas.getText());
+		texto += 1;
+		qnt_vitseguidas.setText(String.valueOf(texto));
+	}
 	
 
 	public void actionPerformed(ActionEvent e) {
@@ -211,6 +213,7 @@ public class Tela extends JFrame implements ActionListener {
 			if (j.equals(k2)) {
 				JOptionPane.showMessageDialog(null, "ACERTOU A SEQUENCIA! PARABENS");
 				k2 = "";
+				vitorias();				
 			}
 		}
 		if (e.getSource() == Botao [1][2]){
@@ -219,6 +222,8 @@ public class Tela extends JFrame implements ActionListener {
 			if (j.equals(k2)) {
 				JOptionPane.showMessageDialog(null, "ACERTOU A SEQUENCIA! PARABENS");
 				k2 = "";
+				vitorias();	
+				
 			}
 		}
 		if (e.getSource() == Botao [2][1]){
@@ -227,6 +232,8 @@ public class Tela extends JFrame implements ActionListener {
 			if (j.equals(k2)) {
 				JOptionPane.showMessageDialog(null, "ACERTOU A SEQUENCIA! PARABENS");
 				k2 = "";
+				vitorias();	
+				
 			}
 		}
 		if (e.getSource() == Botao [2][2]){
@@ -235,6 +242,8 @@ public class Tela extends JFrame implements ActionListener {
 			if (j.equals(k2)) {
 				JOptionPane.showMessageDialog(null, "ACERTOU A SEQUENCIA! PARABENS");
 				k2 = "";
+				vitorias();	
+				
 				
 			}
 		}
@@ -245,6 +254,7 @@ public class Tela extends JFrame implements ActionListener {
 		if (e.getSource() == Botao [4][4]){
 			JOptionPane.showMessageDialog(null, "Comece!");
 			k2 = "";
+			qnt_vitseguidas.setText("0");
 		}
 		
 			//____________________BOTOES DE DIFICULDADE___________________
