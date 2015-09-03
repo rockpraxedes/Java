@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.io.*;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
+import java.lang.*;
 
 public class Tela extends JFrame implements ActionListener {
 	
@@ -32,7 +33,8 @@ public class Tela extends JFrame implements ActionListener {
 	String lvl9="ekhuekhuekheuk";
 	String lvl10="ukkhuekkeeuheh";
 	String lvl0="keuhkeuhkehhuekhuekh";
-	 Timer tempo = new Timer( 3000, null ); // ficar na cor por 3 segundos  
+
+
 
 	public Tela(){
 		
@@ -108,6 +110,7 @@ public class Tela extends JFrame implements ActionListener {
 				jogo.add(Botao[x][y]);
 				Botao[x][y].setPreferredSize(new Dimension(130,130));
 				Botao[x][y].addActionListener(this);
+				Botao[x][y].setBorderPainted(false);
 				
 			}
 		}
@@ -130,8 +133,8 @@ public class Tela extends JFrame implements ActionListener {
 		Botao[2][2].setBackground(Color.BLACK);
 		
 		
-		
 		Icon botverde = new ImageIcon("botaoverde.gif");  
+		Icon verde = new ImageIcon("pisqueverde.gif");  
 		Icon botvermelho = new ImageIcon("botaovermelho.gif");  
 		Icon botamarelo = new ImageIcon("botaoamarelo.gif");  
 		Icon botazul = new ImageIcon("botaoazul.gif");  
@@ -146,8 +149,26 @@ public class Tela extends JFrame implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 	
+		Icon botverde = new ImageIcon("botaoverde.gif");  
+		Icon verde = new ImageIcon("pisqueverde.gif");  
+		Icon botvermelho = new ImageIcon("botaovermelho.gif");  
+		Icon vermelho = new ImageIcon("pisquevermelho.gif");  
+		Icon botamarelo = new ImageIcon("botaoamarelo.gif");  
+		Icon amarelo = new ImageIcon("pisqueamarelo.gif");  
+		Icon botazul = new ImageIcon("botaoazul.gif");  
+		Icon azul = new ImageIcon("pisqueazul.gif");  
+
+  		
+		Botao [1][1].setIcon(botverde); 
+		Botao [1][2].setIcon(botvermelho); 
+		Botao [2][1].setIcon(botamarelo); 
+		Botao [2][2].setIcon(botazul); 
+	
 		if (e.getSource() == Botao [1][1]){
 			k2 += "h";
+
+			Botao [1][1].setIcon(verde); 
+
 			if (lvl.equals(k2)) {
 				JOptionPane.showMessageDialog(null, "ACERTOU A SEQUENCIA! PARABENS");
 				k2 = "";
@@ -156,6 +177,7 @@ public class Tela extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == Botao [1][2]){
 			k2 += "u";
+			Botao [1][2].setIcon(vermelho); 
 			if (lvl.equals(k2)) {
 				JOptionPane.showMessageDialog(null, "ACERTOU A SEQUENCIA! PARABENS");
 				k2 = "";
@@ -163,6 +185,7 @@ public class Tela extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == Botao [2][1]){
 			k2 += "e";
+			Botao [2][1].setIcon(amarelo); 
 				if (lvl.equals(k2)) {
 				JOptionPane.showMessageDialog(null, "ACERTOU A SEQUENCIA! PARABENS");
 				k2 = "";
@@ -170,6 +193,7 @@ public class Tela extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == Botao [2][2]){
 			k2 += "k";
+			Botao [2][2].setIcon(azul); 
 			if (lvl.equals(k2)) {
 				JOptionPane.showMessageDialog(null, "ACERTOU A SEQUENCIA! PARABENS");
 				k2 = "";
