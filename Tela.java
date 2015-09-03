@@ -8,6 +8,7 @@ import java.io.*;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import java.lang.*;
+import java.util.Random;
 
 public class Tela extends JFrame implements ActionListener {
 	
@@ -21,7 +22,11 @@ public class Tela extends JFrame implements ActionListener {
 	private botao[][] Botao = new botao[6][6];
 	private botao[] buton = new botao[20];
 	private String k2 ="";
-	String lvl;
+	public int aleatorio;
+	public int lv1=4,lv2=6,lv3=8,lv4=10,lv5=15,lv6=20,lv7=25,lv8=30,lv9=40,lv10=50,lv0=70;
+	public int lv=0;
+	public String j="";
+	String lvl="";
 	String lvl1="kehu";
 	String lvl2="kkeu";
 	String lvl3="huek";
@@ -144,7 +149,13 @@ public class Tela extends JFrame implements ActionListener {
 		Botao [1][2].setIcon(botvermelho); 
 		Botao [2][1].setIcon(botamarelo); 
 		Botao [2][2].setIcon(botazul); 
+		
+		//Random random = new Random();  
+		
+		//aleatorio = random.nextInt(1); 
+		
 	}
+
 
 
 	public void actionPerformed(ActionEvent e) {
@@ -156,97 +167,172 @@ public class Tela extends JFrame implements ActionListener {
 		Icon botamarelo = new ImageIcon("botaoamarelo.gif");  
 		Icon amarelo = new ImageIcon("pisqueamarelo.gif");  
 		Icon botazul = new ImageIcon("botaoazul.gif");  
-		Icon azul = new ImageIcon("pisqueazul.gif");  
-
+		Icon azul = new ImageIcon("pisqueazul.gif"); 
+		Random random = new Random();  		
+		
   		
 		Botao [1][1].setIcon(botverde); 
 		Botao [1][2].setIcon(botvermelho); 
 		Botao [2][1].setIcon(botamarelo); 
 		Botao [2][2].setIcon(botazul); 
+		
+	//____________________BOTOES COLORIDOS___________________
 	
 		if (e.getSource() == Botao [1][1]){
-			k2 += "h";
+			k2 += "0";
 
 			Botao [1][1].setIcon(verde); 
-
-			if (lvl.equals(k2)) {
+			if (j.equals(k2)) {
 				JOptionPane.showMessageDialog(null, "ACERTOU A SEQUENCIA! PARABENS");
 				k2 = "";
-				
 			}
 		}
 		if (e.getSource() == Botao [1][2]){
-			k2 += "u";
+			k2 += "1";
 			Botao [1][2].setIcon(vermelho); 
-			if (lvl.equals(k2)) {
+			if (j.equals(k2)) {
 				JOptionPane.showMessageDialog(null, "ACERTOU A SEQUENCIA! PARABENS");
 				k2 = "";
 			}
 		}
 		if (e.getSource() == Botao [2][1]){
-			k2 += "e";
+			k2 += "2";
 			Botao [2][1].setIcon(amarelo); 
-				if (lvl.equals(k2)) {
+				if (j.equals(k2)) {
 				JOptionPane.showMessageDialog(null, "ACERTOU A SEQUENCIA! PARABENS");
 				k2 = "";
 			}
 		}
 		if (e.getSource() == Botao [2][2]){
-			k2 += "k";
+			k2 += "3";
 			Botao [2][2].setIcon(azul); 
-			if (lvl.equals(k2)) {
+			if (j.equals(k2)) {
 				JOptionPane.showMessageDialog(null, "ACERTOU A SEQUENCIA! PARABENS");
 				k2 = "";
 				
 			}
 		}
+		
+			//____________________BOTAO NEW GAME___________________
+			
+			
 		if (e.getSource() == Botao [4][4]){
 			JOptionPane.showMessageDialog(null, "Comece!");
 			k2 = "";
 		}
+		
+			//____________________BOTOES DE DIFICULDADE___________________
+			
+			
 		if (e.getSource() == buton [0]){
 			qnt_level.setText("0");
-			lvl=lvl0;
+			j="";
+			lv=lv0;
+			for (int k =1;k<=lv;k++){
+				int aleatorio = random.nextInt(4); 
+				j += aleatorio;
+			}
+			JOptionPane.showMessageDialog(null, " " + j );
 			k2 = "";
 		}if (e.getSource() == buton [1]){
 			qnt_level.setText("1");
-			lvl=lvl1;
+			j="";
+			lv=lv1;
+			for (int k =1;k<=lv;k++){
+				int aleatorio = random.nextInt(4); 
+				j += aleatorio;
+			}
+			JOptionPane.showMessageDialog(null, " " + j );
 			k2 = "";
 		}if (e.getSource() == buton [2]){
 			qnt_level.setText("2");
-			lvl=lvl2;
+			j="";
+			lv=lv2;
+			for (int k =1;k<=lv;k++){
+				int aleatorio = random.nextInt(4); 
+				j += aleatorio;
+			}
+			JOptionPane.showMessageDialog(null, " " + j );
 			k2 = "";
 		}if (e.getSource() == buton [3]){
 			qnt_level.setText("3");
-			lvl=lvl3;
+			j="";
+			lv=lv3;
+			for (int k =1;k<=lv;k++){
+				int aleatorio = random.nextInt(4); 
+				j += aleatorio;
+			}
+			JOptionPane.showMessageDialog(null, " " + j );
 			k2 = "";
 		}if (e.getSource() == buton [4]){
 			qnt_level.setText("4");
-			lvl=lvl4;
+			j="";
+			lv=lv4;
+			for (int k =1;k<=lv;k++){
+				int aleatorio = random.nextInt(4); 
+				j += aleatorio;
+			}
+			JOptionPane.showMessageDialog(null, " " + j );
 			k2 = "";
 		}if (e.getSource() == buton [5]){
 			qnt_level.setText("5");
-			lvl=lvl5;
+			j="";
+			lv=lv5;
+			for (int k =1;k<=lv;k++){
+				int aleatorio = random.nextInt(4); 
+				j += aleatorio;
+			}
+			JOptionPane.showMessageDialog(null, " " + j );
 			k2 = "";
 		}if (e.getSource() == buton [6]){
 			qnt_level.setText("6");
-			lvl=lvl6;
+			j="";
+			lv=lv6;
+			for (int k =1;k<=lv;k++){
+				int aleatorio = random.nextInt(4); 
+				j += aleatorio;
+			}
+			JOptionPane.showMessageDialog(null, " " + j );
 			k2 = "";
 		}if (e.getSource() == buton [7]){
 			qnt_level.setText("7");
-			lvl=lvl7;
+			j="";
+			lv=lv7;
+			for (int k =1;k<=lv;k++){
+				int aleatorio = random.nextInt(4); 
+				j += aleatorio;
+			}
+			JOptionPane.showMessageDialog(null, " " + j );
 			k2 = "";
 		}if (e.getSource() == buton [8]){
 			qnt_level.setText("8");
-			lvl=lvl8;
+			j="";
+			lv=lv8;
+			for (int k =1;k<=lv;k++){
+				int aleatorio = random.nextInt(4); 
+				j += aleatorio;
+			}
+			JOptionPane.showMessageDialog(null, " " + j );
 			k2 = "";
 		}if (e.getSource() == buton [9]){
 			qnt_level.setText("9");
-			lvl=lvl9;
+			j="";
+			lv=lv9;
+			for (int k =1;k<=lv;k++){
+				int aleatorio = random.nextInt(4); 
+				j += aleatorio;
+			}
+			JOptionPane.showMessageDialog(null, " " + j );
 			k2 = "";
 		}if (e.getSource() == buton [10]){
 			qnt_level.setText("10");
-			lvl=lvl10;
+			j="";
+			lv=lv10;
+			for (int k =1;k<=lv;k++){
+				int aleatorio = random.nextInt(4); 
+				j += aleatorio;
+			}
+			JOptionPane.showMessageDialog(null, " " + j );
 			k2 = "";
 		}
 		
