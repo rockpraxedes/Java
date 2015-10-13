@@ -1,0 +1,111 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+import javax.swing.event.*;
+import java.io.*;
+
+
+
+
+
+public class Opcoes extends JFrame {
+
+	// DECLARANDO VARIAVEIS;
+	private static final long serialVersionUID = 1L;
+	private JFrame frame;
+	private JPanel jp_botoes,jp_daltonismo,jp_volume,jp_volslider;
+	private JLabel jl_daltonismo,jl_volume,jl_volslider;
+	private JSlider slider;
+	private JRadioButton radon_dal,radoff_dal,radon_vol,radoff_vol;
+	private ButtonGroup group_dalt,group_vol;
+	private JButton Botao;
+
+	
+	
+	
+	//MTD. CONSTRUTOR;
+	public Opcoes(){
+		
+		super("Tela de Opcoes");
+		JFrame frame = new JFrame("Opcoes");
+		
+		//Setando configs da janela // pack();
+		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE); 
+		frame.setVisible(true);
+		frame.setLocation(300,300);
+		frame.setSize(450,300);
+		frame.setResizable(true); 
+		
+		pack();
+		
+		jp_botoes = new JPanel(new GridLayout(2,2));
+		jp_daltonismo = new JPanel(new GridLayout(3,1));
+		jp_volume = new JPanel(new GridLayout(3,1));
+		jp_volslider = new JPanel(new FlowLayout());
+		
+		//BOTAO
+		
+		
+		Botao = new JButton();
+		Botao.setText("SALVAR E SAIR");
+		Botao.setSize(20,25);
+		
+		
+		//ADDS
+		
+		frame.add(jp_botoes);
+		jp_botoes.add(jp_volume);
+		jp_botoes.add(jp_volslider);
+		jp_botoes.add(jp_daltonismo);
+		jp_botoes.add(Botao);
+		
+		
+		
+	
+		//DALTONISMO
+	
+		jl_daltonismo = new JLabel("MODO DALTONICO: ");
+    radon_dal = new JRadioButton("LIGADO");
+    radoff_dal = new JRadioButton("DESLIGADO", true);
+
+		
+		group_dalt = new ButtonGroup();
+		group_dalt.add(radon_dal);
+		group_dalt.add(radoff_dal);
+	
+		jp_daltonismo.add(jl_daltonismo);
+		jp_daltonismo.add(radon_dal);
+		jp_daltonismo.add(radoff_dal);
+		
+		//VOLUME
+		
+		jl_volume = new JLabel("SOM DO JOGO : ");
+		radon_vol = new JRadioButton("LIGADO");
+    radoff_vol = new JRadioButton("DESLIGADO", true);
+
+		
+		group_vol = new ButtonGroup();
+		group_vol.add(radon_vol);
+		group_vol.add(radoff_vol);
+	
+		jp_volume.add(jl_volume);
+		jp_volume.add(radon_vol);
+		jp_volume.add(radoff_vol);
+   
+	
+		//SLIDER
+		
+		jl_volslider = new JLabel("VOLUME : ");
+		slider = new JSlider(JSlider.HORIZONTAL,0,100,50);
+		jp_volslider.add(jl_volslider);
+		jp_volslider.add(slider);
+	
+	
+
+		
+	}
+	
+	
+}	
